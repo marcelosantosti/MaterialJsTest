@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>Saúde Mobile</title>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+  <script src="app.js"></script>
+  
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="fonts/roboto.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div tabIndex="-1" role="main" flex layout="column">
+	<md-content style="background-color: #D8D8D8">
+		<md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar" md-scroll-shrink ng-if="true" style="position: fixed;">
+		  <div class="md-toolbar-tools">
+			<h2>
+			  <span>Material JS Test</span>
+			</h2>
+		  </div>
+		</md-toolbar>
+	  </md-content>
+	  <md-content style="margin-top: 80px">
+		<md-card style="margin-top: 80px">
+		  <md-card-content>
+			<h2 class="md-title md-primary">Autenticação</h2>
+			<form name="userForm">
+				<md-input-container flex>
+				  <label>Usuário</label>
+				  <input/>
+				</md-input-container>
+				<md-input-container flex>
+				  <label>Senha</label>
+				  <input/>
+				</md-input-container>
+			</form>
+			<div class="md-actions" layout="row" layout-align="end center">
+				<md-button class="md-raised md-primary" ng-href="main.html">Login</md-button>
+		  </div>
+		  </md-card-content>
+		</md-card>
+	  </md-content>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1" />
+  <title>Saúde Mobile</title>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+  <script src="app.js"></script>
+  <script src="services/UnidadeService.js"></script>
+  <script src="controllers/IndexController.js"></script>
+  
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="fonts/roboto.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body style="background-color: #f3f3f3">
+
+  <div ng-controller="IndexController" tabIndex="-1" role="main" flex style="background-color: #D8D8D8">
+	<md-content style="background-color: #f3f3f3">
+		<md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar" md-scroll-shrink ng-if="true" style="position: fixed;">
+		  <div class="md-toolbar-tools">
+			<md-button class="md-icon-button" aria-label="Settings">
+			  <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+			</md-button>
+			<h2>
+			  <span>Saúde Mobile</span>
+			</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" aria-label="Favorite">
+			  <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+			</md-button>
+			<md-button class="md-icon-button" aria-label="More">
+			  <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+			</md-button>
+		  </div>
+		</md-toolbar>
+		<div layout="row" layout-sm="column" layout-align="space-around" style="margin-top: 80px">
+			<md-progress-circular  md-mode="{{ndmode}}" style="margin: 0 auto;"></md-progress-circular>
+		</div>
+	  <md-card ng-show="cardunidadevisible" style="margin-top: -100px">
+			  <md-card-content>
+				<h2 class="md-title">Unidades</h2>
+				<md-checkbox ng-repeat="u in unidade"
+									 ng-value="u.Nome">
+				  {{ u.Nome }}
+				</md-checkbox>
+			  </md-card-content>
+      </md-card>
+	  <md-card ng-show="cardunidadevisible">
+		  <md-card-content>
+			<h2 class="md-title">Datas</h2>
+			<md-datepicker ng-model="myDate" md-placeholder="Data Inicial"></md-datepicker>
+			<md-datepicker ng-model="myDate2" md-placeholder="Data Final"></md-datepicker>
+		  </md-card-content>
+		</md-card>
+		<md-card ng-show="cardunidadevisible">
+		  <md-card-content>
+			<h2 class="md-title">Setor</h2>
+			<md-input-container>
+				<label>Setor</label>
+				<md-select ng-model="IndexController">
+				  <md-option value="1">Todos</md-option>
+				  <md-option value="1">Clínica Médica</md-option>
+				  <md-option value="2">Odontologia</md-option>
+				  <md-option value="3">Pediatria Clínica</md-option>
+				  <md-option value="4">Serviço Social</md-option>
+				</md-select>
+			</md-input-container>
+		  </md-card-content>
+		</md-card>
+		<div layout="row" layout-sm="column" layout-align="space-around">
+			<md-button ng-show="cardunidadevisible" class="md-raised md-primary" style="horizontal-align: right">Pesquisar</md-button>
+		</div>
+	  </md-content>
+  </div>
+
+</body>
+</html>
